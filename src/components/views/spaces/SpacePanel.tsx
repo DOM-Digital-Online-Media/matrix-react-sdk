@@ -59,7 +59,7 @@ import IconizedContextMenu, {
 import SettingsStore from "../../../settings/SettingsStore";
 import { SettingLevel } from "../../../settings/SettingLevel";
 import UIStore from "../../../stores/UIStore";
-import QuickSettingsButton from "./QuickSettingsButton";
+// import QuickSettingsButton from "./QuickSettingsButton";
 import { useSettingValue } from "../../../hooks/useSettings";
 import UserMenu from "../../structures/UserMenu";
 import IndicatorScrollbar from "../../structures/IndicatorScrollbar";
@@ -128,7 +128,8 @@ const MetaSpaceButton: React.FC<IMetaSpaceButtonProps> = ({ selected, isPanelCol
             role="treeitem"
             aria-selected={selected}
         >
-            <SpaceButton {...props} selected={selected} isNarrow={isPanelCollapsed} />
+            {/* <SpaceButton {...props} selected={selected} isNarrow={isPanelCollapsed} /> */}
+            <></>
         </li>
     );
 };
@@ -143,25 +144,27 @@ const HomeButton: React.FC<MetaSpaceButtonProps> = ({ selected, isPanelCollapsed
     const allRoomsInHome = useEventEmitterState(SpaceStore.instance, UPDATE_HOME_BEHAVIOUR, () => {
         return SpaceStore.instance.allRoomsInHome;
     });
-    const [notificationState, setNotificationState] = useState(getHomeNotificationState());
+    console.log(getHomeNotificationState());
+
+    // const [notificationState, setNotificationState] = useState(getHomeNotificationState());
     const updateNotificationState = useCallback(() => {
-        setNotificationState(getHomeNotificationState());
+        // setNotificationState(getHomeNsotificationState());
     }, []);
     useEffect(updateNotificationState, [updateNotificationState, allRoomsInHome]);
     useEventEmitter(RoomNotificationStateStore.instance, UPDATE_STATUS_INDICATOR, updateNotificationState);
-
-    return (
-        <MetaSpaceButton
-            spaceKey={MetaSpace.Home}
-            className="mx_SpaceButton_home"
-            selected={selected}
-            isPanelCollapsed={isPanelCollapsed}
-            label={getMetaSpaceName(MetaSpace.Home, allRoomsInHome)}
-            notificationState={notificationState}
-            ContextMenuComponent={HomeButtonContextMenu}
-            contextMenuTooltip={_t("Options")}
-        />
-    );
+    return <></>;
+    // return (
+    //     <MetaSpaceButton
+    //         spaceKey={MetaSpace.Home}
+    //         className="mx_SpaceButton_home"
+    //         selected={selected}
+    //         isPanelCollapsed={isPanelCollapsed}
+    //         label={getMetaSpaceName(MetaSpace.Home, allRoomsInHome)}
+    //         notificationState={notificationState}
+    //         ContextMenuComponent={HomeButtonContextMenu}
+    //         contextMenuTooltip={_t("Options")}
+    //     />
+    // );
 };
 
 const FavouritesButton: React.FC<MetaSpaceButtonProps> = ({ selected, isPanelCollapsed }) => {
@@ -393,7 +396,7 @@ const SpacePanel: React.FC = () => {
                             )}
                         </Droppable>
 
-                        <QuickSettingsButton isPanelCollapsed={isPanelCollapsed} />
+                        {/* <QuickSettingsButton isPanelCollapsed={isPanelCollapsed} /> */}
                     </div>
                 )}
             </RovingTabIndexProvider>

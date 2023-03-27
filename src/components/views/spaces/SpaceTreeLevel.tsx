@@ -354,6 +354,21 @@ export class SpaceItem extends React.PureComponent<IItemProps, IItemState> {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { tabIndex, ...restDragHandleProps } = dragHandleProps || {};
         const selected = activeSpaces.includes(space.roomId);
+        console.log(<SpaceButton
+            {...restDragHandleProps}
+            space={space}
+            className={isInvite ? "mx_SpaceButton_invite" : undefined}
+            selected={selected}
+            label={this.state.name}
+            contextMenuTooltip={_t("Space options")}
+            notificationState={notificationState}
+            isNarrow={isPanelCollapsed}
+            avatarSize={isNested ? 24 : 32}
+            onKeyDown={this.onKeyDown}
+            ContextMenuComponent={this.props.space.getMyMembership() === "join" ? SpaceContextMenu : undefined}
+        >
+            {toggleCollapseButton}
+        </SpaceButton>)
 
         return (
             <li
@@ -364,7 +379,7 @@ export class SpaceItem extends React.PureComponent<IItemProps, IItemState> {
                 aria-selected={selected}
                 role="treeitem"
             >
-                <SpaceButton
+                {/* <SpaceButton
                     {...restDragHandleProps}
                     space={space}
                     className={isInvite ? "mx_SpaceButton_invite" : undefined}
@@ -376,9 +391,10 @@ export class SpaceItem extends React.PureComponent<IItemProps, IItemState> {
                     avatarSize={isNested ? 24 : 32}
                     onKeyDown={this.onKeyDown}
                     ContextMenuComponent={this.props.space.getMyMembership() === "join" ? SpaceContextMenu : undefined}
-                >
+                    >
                     {toggleCollapseButton}
-                </SpaceButton>
+                </SpaceButton> */}
+                <></>
 
                 {childItems}
             </li>

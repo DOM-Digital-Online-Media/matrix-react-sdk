@@ -342,7 +342,7 @@ export default class UserMenu extends React.Component<IProps, IState> {
 
         let primaryOptionList = (
             <IconizedContextMenuOptionList>
-                {homeButton}
+                {/* {homeButton} */}
                 <IconizedContextMenuOption
                     iconClassName="mx_UserMenu_iconBell"
                     label={_t("Notifications")}
