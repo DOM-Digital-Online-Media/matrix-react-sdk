@@ -24,7 +24,7 @@ import RoomList from "../views/rooms/RoomList";
 import LegacyCallHandler from "../../LegacyCallHandler";
 import { HEADER_HEIGHT } from "../views/rooms/RoomSublist";
 import { Action } from "../../dispatcher/actions";
-import RoomSearch from "./RoomSearch";
+// import RoomSearch from "./RoomSearch";
 import ResizeNotifier from "../../utils/ResizeNotifier";
 import AccessibleTooltipButton from "../views/elements/AccessibleTooltipButton";
 import SpaceStore from "../../stores/spaces/SpaceStore";
@@ -340,6 +340,7 @@ export default class LeftPanel extends React.Component<IProps, IState> {
         }
 
         let rightButton: JSX.Element | undefined;
+        console.log(dialPadButton, rightButton);
         if (this.state.showBreadcrumbs === BreadcrumbsMode.Labs) {
             rightButton = <RecentlyViewedButton />;
         } else if (this.state.activeSpace === MetaSpace.Home && shouldShowComponent(UIComponent.ExploreRooms)) {
@@ -353,17 +354,18 @@ export default class LeftPanel extends React.Component<IProps, IState> {
         }
 
         return (
-            <div
-                className="mx_LeftPanel_filterContainer"
-                onFocus={this.onFocus}
-                onBlur={this.onBlur}
-                onKeyDown={this.onKeyDown}
-            >
-                <RoomSearch isMinimized={this.props.isMinimized} />
+            <></>
+            // <div
+            //     className="mx_LeftPanel_filterContainer"
+            //     onFocus={this.onFocus}
+            //     onBlur={this.onBlur}
+            //     onKeyDown={this.onKeyDown}
+            // >
+            //     <RoomSearch isMinimized={this.props.isMinimized} />
 
-                {dialPadButton}
-                {rightButton}
-            </div>
+            //     {dialPadButton}
+            //     {rightButton}
+            // </div>
         );
     }
 

@@ -52,8 +52,8 @@ import IconizedContextMenu, {
     IconizedContextMenuOptionList,
 } from "../context_menus/IconizedContextMenu";
 import SpaceContextMenu from "../context_menus/SpaceContextMenu";
-import InlineSpinner from "../elements/InlineSpinner";
-import TooltipTarget from "../elements/TooltipTarget";
+// import InlineSpinner from "../elements/InlineSpinner";
+// import TooltipTarget from "../elements/TooltipTarget";
 import { HomeButtonContextMenu } from "../spaces/SpacePanel";
 
 const contextMenuBelow = (elementRect: DOMRect): MenuProps => {
@@ -160,6 +160,7 @@ const RoomListHeader: React.FC<IProps> = ({ onVisibilityChange }) => {
     const canShowPlusMenu = canCreateRooms || canExploreRooms || canCreateSpaces || activeSpace;
 
     let contextMenu: JSX.Element | undefined;
+    console.log(canShowPlusMenu,contextMenu, openPlusMenu);
     if (mainMenuDisplayed && mainMenuHandle.current) {
         let ContextMenuComponent;
         if (activeSpace) {
@@ -389,6 +390,7 @@ const RoomListHeader: React.FC<IProps> = ({ onVisibilityChange }) => {
         .join("\n");
 
     let contextMenuButton: JSX.Element = <div className="mx_RoomListHeader_contextLessTitle">{title}</div>;
+    console.log(pendingActionSummary, contextMenuButton);
     if (canShowMainMenu) {
         contextMenuButton = (
             <ContextMenuTooltipButton
@@ -409,7 +411,7 @@ const RoomListHeader: React.FC<IProps> = ({ onVisibilityChange }) => {
 
     return (
         <div className="mx_RoomListHeader">
-            {contextMenuButton}
+            {/* {contextMenuButton}
             {pendingActionSummary ? (
                 <TooltipTarget label={pendingActionSummary}>
                     <InlineSpinner />
@@ -425,7 +427,7 @@ const RoomListHeader: React.FC<IProps> = ({ onVisibilityChange }) => {
                 />
             )}
 
-            {contextMenu}
+            {contextMenu} */}
         </div>
     );
 };

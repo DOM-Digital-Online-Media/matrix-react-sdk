@@ -667,7 +667,7 @@ export default class RoomList extends React.PureComponent<IProps, IState> {
                     forRooms={true}
                     startAsHidden={aesthetics.defaultHidden}
                     label={aesthetics.sectionLabelRaw ? aesthetics.sectionLabelRaw : _t(aesthetics.sectionLabel)}
-                    AuxButtonComponent={aesthetics.AuxButtonComponent}
+                    // AuxButtonComponent={aesthetics.AuxButtonComponent}
                     isMinimized={this.props.isMinimized}
                     showSkeleton={showSkeleton}
                     extraTiles={extraTiles}
